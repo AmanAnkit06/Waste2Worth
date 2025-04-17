@@ -23,6 +23,7 @@ export const donorEndpoints = {
   GET_FULL_DONOR_DETAILS_API: BASE_URL + "/donor/get-full-donor-details",
   VIEW_DONOR_DETAILS_API: BASE_URL + "/donor/view-donor-details",
   DELETE_DONOR_DETAILS_API: BASE_URL + "/donor/delete-donor-details"
+ 
 }
 
 //RECEPIENT ENDPOINTS
@@ -32,7 +33,8 @@ export const recepientEndpoints = {
   EDIT_RECEPIENT_DETAILS_API: BASE_URL + "/recepient/edit-recepient-details",
   GET_FULL_RECEPIENT_DETAILS_API: BASE_URL + "/recepient/get-full-recepient-details",
   VIEW_RECEPIENT_DETAILS_API: BASE_URL + "/recepient/view-recepient-details",
-  DELETE_RECEPIENT_DETAILS_API: BASE_URL + "/recepient/delete-recepient-details"
+  DELETE_RECEPIENT_DETAILS_API: BASE_URL + "/recepient/delete-recepient-details",
+   GET_SINLE_DONOR_CARD_DETAILS: BASE_URL + "/recepient/view-donor-single-card-details"
 }
 
 // CONTACT-US API

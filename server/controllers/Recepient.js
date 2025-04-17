@@ -72,6 +72,33 @@ exports.addRecepientDetails = async (req, res) => {
     }
 }
 
+exports.viewsinglecarddetails = async (req, res) => {
+    try {
+        const { donorId } = req.query
+        const donorDetails = await DonorProfile.findOne({ _id: donorId })
+        console.log("donorDetails", donorDetails)
+        console.log("donorId", req.query)
+
+        //Check Whether The Detail Exist Or Not 
+        if (!donorDetails) {
+            return res.status(404).json({ message: "Donor Details Not Found" })
+        }
+
+        return res.status(200).json({
+            success: true,
+            donorDetails: donorDetails,
+            message: "Donor Details card given Successfully",
+        })
+    } catch (error) {
+        console.error(error)
+        return res.status(500).json({
+            success: false,
+            message: "Server Error",
+            error: error.message
+        })
+    }
+}
+
 //To Edit Recepient Details
 exports.editRecepientDetails = async (req, res) => {
     try {
