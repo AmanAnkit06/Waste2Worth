@@ -2,14 +2,16 @@ import { toast } from "react-hot-toast"
 
 import { apiConnector } from "../apiConnector"
 import { recepientEndpoints } from "../apis"
-
+// import { donorEndpoints } from "../apis/ VIEW_DONOR_DETAILS_API"
+// import { viewDonorDetails } from "./donorAPI"
 const {
     VIEW_DONORS_API,
     ADD_RECEPIENT_DETAILS_API,
     EDIT_RECEPIENT_DETAILS_API,
     GET_FULL_RECEPIENT_DETAILS_API,
     VIEW_RECEPIENT_DETAILS_API,
-    DELETE_RECEPIENT_DETAILS_API
+    DELETE_RECEPIENT_DETAILS_API,
+    GET_SINLE_DONOR_CARD_DETAILS,
 } = recepientEndpoints
 
 export const viewDonors = async (token) => {
@@ -145,6 +147,32 @@ export const deleteRecepientDetails = async (data, token) => {
             throw new Error("Could Not Delete Details")
         }
         toast.success("Recepient Details Deleted Successfully")
+    } catch (error) {
+        console.log("DELETE_RECEPIENT_DETAILS_API ERROR............", error)
+        toast.error(error.message)
+    }
+    toast.dismiss(toastId)
+}
+
+
+export const getsinglecarddetails = async (data, token) => {
+    const toastId = toast.loading("Loading...")
+    let result =[]
+    try {
+        console.log("data",data)
+        const response = await apiConnector("GET", GET_SINLE_DONOR_CARD_DETAILS, data, {
+            Authorization: `Bearer ${token}`
+        })
+        console.log("GET_SINLE_DONOR_CARD_DETAILS_RESOPNSE............", response)
+        if (!response?.data?.success) {
+            throw new Error("Could Not get Details")
+        }
+        toast.success("Recepient Details  Successfully")
+        
+        result = response?.donorDetails
+        console.log("response",response)
+        console.log("response",response?.donorDetails)
+        return result
     } catch (error) {
         console.log("DELETE_RECEPIENT_DETAILS_API ERROR............", error)
         toast.error(error.message)

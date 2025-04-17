@@ -416,12 +416,14 @@ exports.viewDetails = async (req, res) => {
     }
 }
 
+
+
 //To Delete A Donation Detail
 exports.deleteDetails = async (req, res) => {
     try {
         const { donorId } = req.body
         const donorDetails = await DonorProfile.findOne({ _id: donorId })
-
+        
         //Check Whether The Detail Exist Or Not 
         if (!donorDetails) {
             return res.status(404).json({ message: "Donor Details Not Found" })

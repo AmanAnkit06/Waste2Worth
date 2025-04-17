@@ -24,9 +24,9 @@ import ViewRequests from './components/core/Dashboard/RecepientUsers/EditRecepie
 import About from "./pages/About"
 import Contact from "./pages/Contact"
 import './App.css'
-import { ACCOUNT_TYPE } from './utils/constants';import Donarscarddetails from './components/core/Dashboard/RecepientUsers/Donarscarddetails'
+import { ACCOUNT_TYPE } from './utils/constants';
+import Donarscarddetails from './components/core/Dashboard/RecepientUsers/Donarscarddetails'
 
-import DonarscarddetailsWrapper from './components/core/Dashboard/RecepientUsers/DonarscarddetailsWrapper'
 
 function App() {
   const { user } = useSelector((state) => state.profile)
@@ -120,8 +120,8 @@ function App() {
                 <Route path="dashboard/update-receiving" element={<AddRecepientDetails />} />
                 <Route path="dashboard/edit-recepient-details/:recepientId" element={<EditRecepientDetails />} />
                 <Route path="dashboard/edit-recepient-details" element={<ViewRequests />} />
-                <Route path="dashboard/view-donar-card-details/:donorId" element={<Donarscarddetails/>}/>
-                <Route path="dashboard/donor/:id" element={<DonarscarddetailsWrapper />} />
+                <Route path="dashboard/view-donor-single-card-details/:donorId" element={<Donarscarddetails/>}/>
+                {/* <Route path="/donor/:id" element={<DonarscarddetailsWrapper />} /> */}
 
               </>
             )

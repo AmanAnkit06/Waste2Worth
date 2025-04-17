@@ -229,7 +229,7 @@ const ViewDonorDetails = () => {
               {filteredDonors.map((donor, index) => (
                 <div
                   key={index}
-                  onClick={() => navigate(`dashboard/view-donar-card-details`)}
+                  onClick={() => navigate(`/dashboard/view-donor-single-card-details/${donor._id}`)}
                  
 
                   className="cursor-pointer bg-white shadow-md rounded-xl p-5 hover:shadow-xl transition-all"

@@ -45,7 +45,8 @@ const {
     getFullDonorDetails,
     viewDetails,
     deleteDetails,
-   getNearbyDonors, // ✅ Imported
+   getNearbyDonors,
+   viewsinglecarddetails, // ✅ Imported
 } = require("../controllers/Donor");
 
 const { auth, isDonor } = require("../middlewares/auth");
@@ -64,6 +65,7 @@ router.post("/get-full-donor-details", auth, isDonor, getFullDonorDetails);
 
 // Route To View Donor Details
 router.get("/view-donor-details", auth, isDonor, viewDetails);
+
 
 // Route To Delete Donor Details
 router.delete("/delete-donor-details", auth, isDonor, deleteDetails);
