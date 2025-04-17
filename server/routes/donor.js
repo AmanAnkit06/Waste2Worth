@@ -1,6 +1,5 @@
 // const express = require("express")
 // const router = express.Router()
-
 // const {
 //     addDonorDetails,
 //     viewRecepients,
@@ -32,9 +31,6 @@
 
 // module.exports = router
 
-
-
-
 const express = require("express");
 const router = express.Router();
 
@@ -45,8 +41,7 @@ const {
     getFullDonorDetails,
     viewDetails,
     deleteDetails,
-   getNearbyDonors,
-   viewsinglecarddetails, // ✅ Imported
+    getNearbyDonors   
 } = require("../controllers/Donor");
 
 const { auth, isDonor } = require("../middlewares/auth");
@@ -66,11 +61,10 @@ router.post("/get-full-donor-details", auth, isDonor, getFullDonorDetails);
 // Route To View Donor Details
 router.get("/view-donor-details", auth, isDonor, viewDetails);
 
-
 // Route To Delete Donor Details
 router.delete("/delete-donor-details", auth, isDonor, deleteDetails);
 
-// ✅ Route To Get Nearby Donors
+// Route To Get Nearby Donors
 router.post("/donors/nearby", auth, isDonor, getNearbyDonors);
 
 module.exports = router;

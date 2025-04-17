@@ -214,30 +214,25 @@
 //     }
 // }
 
-
 const User = require('../models/User')
 const DonorProfile = require('../models/DonorProfile')
 const RecepientProfile = require('../models/RecepientProfile')
-
-
 
 exports.addDonorDetails = async (req, res) => {
     try {
         const {
            latitude, longitude, donationFrequency, donationDescription, typeOfFood, quantity,
-            deliveryOption, prefferedPickUpTime,phonenumber,
-            // location,
+           deliveryOption, prefferedPickUpTime, phonenumber
         } = req.body
         const userId = req.user.id
 
         if (
            !latitude||!longitude||!donationFrequency || !donationDescription || !typeOfFood || !quantity ||
-            !deliveryOption || !prefferedPickUpTime || !phonenumber 
-            // || !location
+           !deliveryOption || !prefferedPickUpTime || !phonenumber
         ) {
             return res.status(403).json({
                 success: false,
-                message: "All Fields Including Location Are Required"
+                message: "All Fields Are Required"
             });
         }
 
@@ -261,7 +256,6 @@ exports.addDonorDetails = async (req, res) => {
             deliveryOption,
             prefferedPickUpTime,
             phonenumber,
-            // location,
             createdAt: Date.now()
         });
 
@@ -278,9 +272,6 @@ exports.addDonorDetails = async (req, res) => {
         });
     }
 };
-
-
-
 
 //To View Recepients Who Has Created One Or More Requests 
 exports.viewRecepients = async (req, res) => {
@@ -416,8 +407,6 @@ exports.viewDetails = async (req, res) => {
     }
 }
 
-
-
 //To Delete A Donation Detail
 exports.deleteDetails = async (req, res) => {
     try {
@@ -454,7 +443,7 @@ exports.getNearbyDonors = async (req, res) => {
         if (!latitude || !longitude ) {
             return res.status(400).json({
                 success: false,
-                message: "Latitude, Longitude and maxDistanceInKm are required"
+                message: "Latitude, Longitude And Max Distance (In Km) Are Required"
             });
         }
 

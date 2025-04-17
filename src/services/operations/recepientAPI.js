@@ -2,8 +2,7 @@ import { toast } from "react-hot-toast"
 
 import { apiConnector } from "../apiConnector"
 import { recepientEndpoints } from "../apis"
-// import { donorEndpoints } from "../apis/ VIEW_DONOR_DETAILS_API"
-// import { viewDonorDetails } from "./donorAPI"
+
 const {
     VIEW_DONORS_API,
     ADD_RECEPIENT_DETAILS_API,
@@ -11,7 +10,7 @@ const {
     GET_FULL_RECEPIENT_DETAILS_API,
     VIEW_RECEPIENT_DETAILS_API,
     DELETE_RECEPIENT_DETAILS_API,
-    GET_SINLE_DONOR_CARD_DETAILS,
+    GET_SINGLE_DONOR_CARD_DETAILS
 } = recepientEndpoints
 
 export const viewDonors = async (token) => {
@@ -155,27 +154,27 @@ export const deleteRecepientDetails = async (data, token) => {
 }
 
 
-export const getsinglecarddetails = async (data, token) => {
+export const getSingleCardDetails = async (data, token) => {
     const toastId = toast.loading("Loading...")
-    let result =[]
+    let result = []
+    
     try {
-        console.log("data",data)
-        const response = await apiConnector("GET", GET_SINLE_DONOR_CARD_DETAILS, data, {
+        
+        const response = await apiConnector("POST", GET_SINGLE_DONOR_CARD_DETAILS, data, {
             Authorization: `Bearer ${token}`
         })
-        console.log("GET_SINLE_DONOR_CARD_DETAILS_RESOPNSE............", response)
+        console.log("GET_SINGLE_DONOR_CARD_DETAILS_API RESPONSE............", response)
         if (!response?.data?.success) {
-            throw new Error("Could Not get Details")
-        }
-        toast.success("Recepient Details  Successfully")
+            throw new Error("Could Not Get Details")
+        }       
         
-        result = response?.donorDetails
-        console.log("response",response)
-        console.log("response",response?.donorDetails)
-        return result
+        result = response?.data?.donorDetails
+                
     } catch (error) {
-        console.log("DELETE_RECEPIENT_DETAILS_API ERROR............", error)
+        console.log("GET_SINGLE_DONOR_CARD_DETAILS_API ERROR............", error)
         toast.error(error.message)
     }
+
     toast.dismiss(toastId)
+    return result
 }

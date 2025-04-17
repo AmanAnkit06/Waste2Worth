@@ -72,25 +72,33 @@ exports.addRecepientDetails = async (req, res) => {
     }
 }
 
-exports.viewsinglecarddetails = async (req, res) => {
-    try {
-        const { donorId } = req.query
-        const donorDetails = await DonorProfile.findOne({ _id: donorId })
-        console.log("donorDetails", donorDetails)
-        console.log("donorId", req.query)
+// To Get Details Of A Particular Donor
+exports.viewSingleCardDetails = async (req, res) => {
+    try { 
 
-        //Check Whether The Detail Exist Or Not 
+        const donorDetails = await DonorProfile.findOne({ _id: req.body.donorId })
+        .populate({
+            path: "donor",
+            
+            populate: {
+                path: "address"
+            }
+        })
+        .exec()
+
+        // Check Whether The Detail Exist Or Not 
         if (!donorDetails) {
             return res.status(404).json({ message: "Donor Details Not Found" })
         }
-
+        
         return res.status(200).json({
             success: true,
             donorDetails: donorDetails,
-            message: "Donor Details card given Successfully",
+            message: "Donor Details Fetched Successfully",
         })
+
     } catch (error) {
-        console.error(error)
+        console.error(error)        
         return res.status(500).json({
             success: false,
             message: "Server Error",

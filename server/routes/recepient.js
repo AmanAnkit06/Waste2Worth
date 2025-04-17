@@ -8,7 +8,7 @@ const {
     getFullRecepientDetails,
     viewRecepientDetails,
     deleteRecepientDetails,
-    viewsinglecarddetails
+    viewSingleCardDetails
 } = require("../controllers/Recepient")
 
 const { auth, isRecepient } = require("../middlewares/auth")
@@ -24,7 +24,10 @@ router.post("/edit-recepient-details", auth, isRecepient, editRecepientDetails)
 
 //Route To Get A Particular Recepient Details
 router.post("/get-full-recepient-details", auth, isRecepient, getFullRecepientDetails)
-router.get("/view-donor-single-card-details", auth, isRecepient, viewsinglecarddetails);
+
+//Route To View Single Donor Details 
+router.post("/view-donor-single-card-details", auth, isRecepient, viewSingleCardDetails)
+
 //Route To View Recepient Details
 router.get("/view-recepient-details", auth, isRecepient, viewRecepientDetails)
 
