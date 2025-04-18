@@ -26,7 +26,7 @@ import Contact from "./pages/Contact"
 import './App.css'
 import { ACCOUNT_TYPE } from './utils/constants'
 import DonorCardDetails from './components/core/Dashboard/RecepientUsers/DonorCardDetails'
-import RecepientCardDetails from './components/core/Dashboard/DonorUsers/RecepientCardDetails'
+
 import Blogs from './pages/Blogs'
 
 function App() {
@@ -111,7 +111,7 @@ function App() {
                 <Route path="dashboard/recepients" element={<ViewRecepientDetails />} />
                 <Route path="dashboard/edit-donor-details/:donorId" element={<EditDonorDetails />} />
                 <Route path="dashboard/edit-donor-details" element={<ViewDonations />} />
-                <Route path="dashboard/view-recepient-single-card-details/:recepientId" element={<RecepientCardDetails/>}/>
+                {/* <Route path="dashboard/view-recepient-single-card-details/:recepientId" element={<RecepientCardDetails/>}/> */}
               </>
             )
           }

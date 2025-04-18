@@ -136,7 +136,7 @@ const ViewRecepientDetails = () => {
             
             <div
               key={i}
-              onClick={() => navigate(`/dashboard/view-recepient-single-card-details/${recepient._id}`)}
+              // onClick={() => navigate(`/dashboard/view-recepient-single-card-details/${recepient._id}`)}
               className="bg-[#f0f4f8] rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow border border-[#d1d5db] cursor-pointer"
             >
               <div className="mb-4">
