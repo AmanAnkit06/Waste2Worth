@@ -473,3 +473,37 @@ exports.getNearbyDonors = async (req, res) => {
         });
     }
 };
+
+exports.viewSingleCardDetails = async (req, res) => {
+    try { 
+
+        const recepientDetails = await RecepientProfile.findOne({ _id: req.body.recepientId })
+        .populate({
+            path: "recepient",
+            
+            populate: {
+                path: "address"
+            }
+        })
+        .exec()
+        console.log(recepientDetails)
+        // Check Whether The Detail Exist Or Not 
+        if (!recepientDetails) {
+            return res.status(404).json({ message: "Recepient Details Not Found" })
+        }
+        
+        return res.status(200).json({
+            success: true,
+            recepientDetails: recepientDetails,
+            message: "recepient Details Fetched Successfully",
+        })
+
+    } catch (error) {
+        console.error(error)        
+        return res.status(500).json({
+            success: false,
+            message: "Server Error",
+            error: error.message
+        })
+    }
+}

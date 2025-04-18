@@ -9,7 +9,8 @@ const {
     EDIT_DONOR_DETAILS_API,
     GET_FULL_DONOR_DETAILS_API,
     VIEW_DONOR_DETAILS_API,
-    DELETE_DONOR_DETAILS_API
+    DELETE_DONOR_DETAILS_API,
+    GET_SINGLE_RECEPIENT_CARD_DETAILS,
 } = donorEndpoints
 
 export const addDonorDetails = async (data, token, navigate) => {
@@ -150,4 +151,31 @@ export const deleteDonorDetails = async (data, token) => {
         toast.error(error.message)
     }
     toast.dismiss(toastId)
+}
+
+
+
+export const getSingleCardDetails = async (data, token) => {
+    const toastId = toast.loading("Loading...")
+    let result = []
+    
+    try {
+        
+        const response = await apiConnector("POST", GET_SINGLE_RECEPIENT_CARD_DETAILS, data, {
+            Authorization: `Bearer ${token}`
+        })
+        console.log("GET_SINGLE_RECEPIENT_CARD_DETAILS_API RESPONSE............", response)
+        if (!response?.data?.success) {
+            throw new Error("Could Not Get Details")
+        }       
+        
+        result = response?.data?.recepientDetails
+                
+    } catch (error) {
+        console.log("GET_SINGLE_RECEPIENT_CARD_DETAILS_API ERROR............", error)
+        toast.error(error.message)
+    }
+
+    toast.dismiss(toastId)
+    return result
 }
