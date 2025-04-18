@@ -28,6 +28,8 @@ import { ACCOUNT_TYPE } from './utils/constants'
 import DonorCardDetails from './components/core/Dashboard/RecepientUsers/DonorCardDetails'
 import RecepientcardDetails from './components/core/Dashboard/DonorUsers/EditDonor/RecepientcardDetails'
 
+import Blogs from './pages/Blogs'
+
 function App() {
   const { user } = useSelector((state) => state.profile)
 
@@ -84,7 +86,7 @@ function App() {
           }
         />
         <Route path="contact" element={<Contact />} />
-
+        <Route path='catalog' element={<Blogs/>}/>
         {/* Private Route - For Logged In User */}
         <Route
           element={

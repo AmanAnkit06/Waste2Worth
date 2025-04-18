@@ -133,6 +133,7 @@ const ViewRecepientDetails = () => {
       ) : user?.approved === true && recepients?.length ? (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {recepients.map((recepient, i) => (
+            
             <div
               key={i}
               onClick={() => navigate(`/dashboard/view-recepient-single-card-details/${recepient._id}`)}

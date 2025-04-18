@@ -154,7 +154,6 @@ export const deleteDonorDetails = async (data, token) => {
 }
 
 
-
 export const getSingleCardDetails = async (data, token) => {
     const toastId = toast.loading("Loading...")
     let result = []

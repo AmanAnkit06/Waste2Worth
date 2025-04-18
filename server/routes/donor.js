@@ -59,6 +59,7 @@ router.post("/edit-donor-details", auth, isDonor, editDonorDetails);
 // Route To Get A Particular Donation Details
 router.post("/get-full-donor-details", auth, isDonor, getFullDonorDetails);
 
+
 // Route To View Donor Details
 router.get("/view-donor-details", auth, isDonor, viewDetails);
 
