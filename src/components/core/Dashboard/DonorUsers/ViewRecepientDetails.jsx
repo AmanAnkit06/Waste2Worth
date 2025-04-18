@@ -133,9 +133,10 @@ const ViewRecepientDetails = () => {
       ) : user?.approved === true && recepients?.length ? (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {recepients.map((recepient, i) => (
+            
             <div
               key={i}
-              onClick={() => navigate("/view-recepient")}
+              // onClick={() => navigate(`/dashboard/view-recepient-single-card-details/${recepient._id}`)}
               className="bg-[#f0f4f8] rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow border border-[#d1d5db] cursor-pointer"
             >
               <div className="mb-4">

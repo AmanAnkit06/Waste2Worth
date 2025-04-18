@@ -23,6 +23,7 @@ export const donorEndpoints = {
   GET_FULL_DONOR_DETAILS_API: BASE_URL + "/donor/get-full-donor-details",
   VIEW_DONOR_DETAILS_API: BASE_URL + "/donor/view-donor-details",
   DELETE_DONOR_DETAILS_API: BASE_URL + "/donor/delete-donor-details" 
+ 
 }
 
 //RECEPIENT ENDPOINTS
