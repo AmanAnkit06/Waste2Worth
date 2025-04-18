@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d211218e.css",
+    "main.js": "/static/js/main.2047431c.js",
+    "static/js/453.2db46e35.chunk.js": "/static/js/453.2db46e35.chunk.js",
+    "static/media/Recepient.png": "/static/media/Recepient.1d9e608f40e253def0f2.png",
+    "static/media/Logo.png": "/static/media/Logo.c2b4d48baec3c92d6853.png",
+    "static/media/BannerImage3.webp": "/static/media/BannerImage3.eee6b5376019ced411b0.webp",
+    "static/media/donor2.webp": "/static/media/donor2.55c726eb8dc498904446.webp",
+    "static/media/BannerImage1.webp": "/static/media/BannerImage1.cc962c3600829bec5838.webp",
+    "static/media/background.jpg": "/static/media/background.851342c5a36d499437c5.jpg",
+    "static/media/BannerImage2.jpg": "/static/media/BannerImage2.8355be3e80d761436411.jpg",
+    "static/media/hiw2.jpg": "/static/media/hiw2.7616beb9dce2f79ce3b9.jpg",
+    "static/media/hiw3.jpg": "/static/media/hiw3.a5ec6a45d01fb7b52959.jpg",
+    "static/media/FoundingStory.jpg": "/static/media/FoundingStory.2d77c4bf761bf51049a4.jpg",
+    "static/media/donor3.jpg": "/static/media/donor3.79559b82e1229a7fe26a.jpg",
+    "static/media/hiw1.jpg": "/static/media/hiw1.1c819c9dcdc9dbaa6f21.jpg",
+    "static/media/donor1.jpg": "/static/media/donor1.837e546abf44636b38bf.jpg",
+    "index.html": "/index.html",
+    "main.d211218e.css.map": "/static/css/main.d211218e.css.map",
+    "main.2047431c.js.map": "/static/js/main.2047431c.js.map",
+    "453.2db46e35.chunk.js.map": "/static/js/453.2db46e35.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d211218e.css",
+    "static/js/main.2047431c.js"
+  ]
+}
