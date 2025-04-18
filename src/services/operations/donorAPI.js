@@ -172,9 +172,11 @@ export const getSingleCardDetails = async (data, token) => {
                 
     } catch (error) {
         console.log("GET_SINGLE_RECEPIENT_CARD_DETAILS_API ERROR............", error)
+        console.log("first")
         toast.error(error.message)
     }
 
     toast.dismiss(toastId)
     return result
 }
+// sejbfjevwhfwee
