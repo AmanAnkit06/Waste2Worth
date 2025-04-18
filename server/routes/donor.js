@@ -41,7 +41,8 @@ const {
     getFullDonorDetails,
     viewDetails,
     deleteDetails,
-    getNearbyDonors   
+    getNearbyDonors,   
+    viewSingleReceipientCardDetails
 } = require("../controllers/Donor");
 
 const { auth, isDonor } = require("../middlewares/auth");
@@ -57,6 +58,9 @@ router.post("/edit-donor-details", auth, isDonor, editDonorDetails);
 
 // Route To Get A Particular Donation Details
 router.post("/get-full-donor-details", auth, isDonor, getFullDonorDetails);
+
+//Route To View Single recepient Details 
+router.post("/view-recepient-single-card-details", auth, isDonor,viewSingleReceipientCardDetails );
 
 // Route To View Donor Details
 router.get("/view-donor-details", auth, isDonor, viewDetails);
