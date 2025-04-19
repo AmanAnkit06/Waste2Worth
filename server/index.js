@@ -27,7 +27,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
 	cors({
-		origin: "https://waste2worth-backend.onrender.com",
+		origin: "*",
 		credentials: true,
 	})
 );
