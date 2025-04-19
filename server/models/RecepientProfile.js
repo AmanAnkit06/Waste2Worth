@@ -1,5 +1,16 @@
 const mongoose = require('mongoose')
 const recepientProfileSchema = new mongoose.Schema({
+    latitude: {
+        type: Number,
+        required: true,
+      },
+      longitude: {
+        type: Number,
+        required: true,
+      },
+    
+    
+    
     recepient: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
@@ -39,7 +50,11 @@ const recepientProfileSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now
-    }
+    },
+    phonenumber:{
+        type:Number,
+        required:true,
+      },
     // requestHistory:{
     //     type:mongoose.Schema.Types.ObjectId,
     //     ref:"Request"

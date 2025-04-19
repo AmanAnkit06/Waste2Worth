@@ -26,12 +26,12 @@ exports.viewDonors = async (req, res) => {
 exports.addRecepientDetails = async (req, res) => {
     try {
         const {
-            frequencyOfNeed, requestDescription, typeOfFood, quantity,
-            receivingOption, prefferedPickUpTime } = req.body
+            latitude,longitude,frequencyOfNeed, requestDescription, typeOfFood, quantity,
+            receivingOption, prefferedPickUpTime ,phonenumber} = req.body
         const userId = req.user.id
 
         //Check Whether All Required Fields Are Present Or Not
-        if (!frequencyOfNeed || !requestDescription || !typeOfFood || !quantity || !receivingOption || !prefferedPickUpTime) {
+        if (!latitude || !longitude || !frequencyOfNeed || !requestDescription || !typeOfFood || !quantity || !receivingOption || !prefferedPickUpTime || !phonenumber) {
             return res.status(403).json({
                 success: false,
                 message: "All Fields Are Required"
@@ -49,6 +49,8 @@ exports.addRecepientDetails = async (req, res) => {
 
         //Create Recepient Profile With The Given Fields
         const recepientDetails = await RecepientProfile.create({
+            latitude,
+            longitude,            
             recepient: userId,
             frequencyOfNeed,
             requestDescription,
@@ -56,6 +58,7 @@ exports.addRecepientDetails = async (req, res) => {
             quantity,
             receivingOption,
             prefferedPickUpTime,
+            phonenumber,
             createdAt: Date.now()
         })
         return res.status(200).json({
@@ -118,6 +121,11 @@ exports.editRecepientDetails = async (req, res) => {
         }
 
         //Update The Profile
+        if (req.body.latitude !== undefined)
+            recepient.latitude = req.body.latitude  
+        if (req.body.longitude !== undefined)
+            recepient.longitude = req.body.longitude
+
         if (req.body.frequencyOfNeed !== undefined)
             recepient.frequencyOfNeed = req.body.frequencyOfNeed
         if (req.body.requestDescription !== undefined)
@@ -130,6 +138,9 @@ exports.editRecepientDetails = async (req, res) => {
             recepient.receivingOption = req.body.receivingOption
         if (req.body.prefferedPickUpTime !== undefined)
             recepient.prefferedPickUpTime = req.body.prefferedPickUpTime
+       if (req.body.phonenumber !== undefined)
+            recepient.phonenumber = req.body.phonenumber
+
         await recepient.save()
 
         const updatedRecepient = await RecepientProfile.findOne({
